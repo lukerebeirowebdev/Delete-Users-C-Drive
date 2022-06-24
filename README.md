@@ -7,9 +7,9 @@ This can be used to clear up computers on various networks from the top level of
 
 This will have to be used in powershell in Administrator Mode! **IMPORTANT**
 
-`# Input folder names in the quotations below followed by a comma to add multiple files you wish to exclude
+Input folder names in the quotations below followed by a comma to add multiple files you wish to exclude
 
-$ExcludedUsers =""
+`$ExcludedUsers =""
 $LocalProfiles=Get-WMIObject -class Win32_UserProfile | Where-Object {(!$_.Special) -and (!$_.Loaded) -and ($_.ConvertToDateTime($_.LastUseTime) -lt (Get-Date).AddDays(-7))}
 foreach ($LocalProfile in $LocalProfiles)
 {
